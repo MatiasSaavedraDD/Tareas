@@ -1,0 +1,228 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyPE3LPloO+8CckmFq7NiR50",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/MatiasSaavedraDD/Tareas/blob/main/Tarea%201\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Definicion de un metodo para calcular el Area de un circulo. Utilizando PEP8\n",
+        "\n"
+      ],
+      "metadata": {
+        "id": "rYE_KJo_xEc5"
+      }
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 8,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "QILeB6azxDOR",
+        "outputId": "0ba55cc8-71c3-4e1e-9990-75e84089eae8"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "5\n",
+            "78.53999999999999\n"
+          ]
+        }
+      ],
+      "source": [
+        "def area_circulo(radio):\n",
+        "    \"\"\"Multiplica el valor del radio elevado al cuadrado\n",
+        "        y lo multiplica por el valor de pi.\n",
+        "        Parametros:\n",
+        "        radio (int o float)\n",
+        "    \"\"\"\n",
+        "    pi = 3.1416\n",
+        "    return (radio**2)*pi\n",
+        "if __name__ == \"__main__\":\n",
+        "    user_name = float(input())\n",
+        "    print(area_circulo(user_name))"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Doctring de el metodo para calcular el area de un circulo\n"
+      ],
+      "metadata": {
+        "id": "0qWVH5qnzsyY"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def area_circulo(radio):\n",
+        "    \"\"\"\n",
+        "    Calcula el área de un círculo.\n",
+        "\n",
+        "    La fórmula utilizada es:\n",
+        "        A = π * r²\n",
+        "\n",
+        "    Parámetros:\n",
+        "        radio (int o float): El radio del círculo. Puede ser un número entero o decimal.\n",
+        "\n",
+        "    Retorna:\n",
+        "        float: El área del círculo en las mismas unidades cuadradas del radio.\n",
+        "\n",
+        "    Ejemplo:\n",
+        "        >>> area_circulo(5)\n",
+        "        78.54\n",
+        "    \"\"\"\n",
+        "    pi = 3.1416\n",
+        "    return (radio**2) * pi\n",
+        "\n",
+        "if __name__ == \"__main__\":\n",
+        "    user_name = float(input(\"Ingresa el radio del círculo: \"))\n",
+        "    print(\"El área del círculo es:\", area_circulo(user_name))\n"
+      ],
+      "metadata": {
+        "id": "fg0w5awS1-0K"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "source": [],
+      "metadata": {
+        "id": "z_hNoHah2SNz"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import numpy as np\n",
+        "\n",
+        "class ArrayManager:\n",
+        "    def __enter__(self):\n",
+        "        # Crear el array aquí\n",
+        "        self.arr = np.array([1, 2, 3, 4, 5])\n",
+        "        print(\"Array creado:\", self.arr)\n",
+        "        return self  # Devuelve el objeto para que se pueda usar fuera del contexto\n",
+        "\n",
+        "    def __exit__(self, exc_type, exc_val, exc_tb):\n",
+        "        # Este método se llama cuando se sale del bloque 'with'\n",
+        "        print(\"Saliendo del contexto. El array era:\", self.arr)\n",
+        "        # Aquí podrías manejar errores si ocurren dentro del bloque\n",
+        "        if exc_type is not None:\n",
+        "            print(f\"Error ocurrido: {exc_val}\")\n",
+        "\n",
+        "# Usar el context manager\n",
+        "with ArrayManager() as manager:\n",
+        "    # Dentro del bloque 'with', podemos trabajar con el array\n",
+        "    valor_minimo = np.min(manager.arr)\n",
+        "    valor_maximo = np.max(manager.arr)\n",
+        "\n",
+        "    print(\"Valor mínimo:\", valor_minimo)\n",
+        "    print(\"Valor máximo:\", valor_maximo)\n",
+        "\n",
+        "\n",
+        "\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "BF8M7z262wBH",
+        "outputId": "d9538b93-8c07-4030-f2db-d6687ffb3cb8"
+      },
+      "execution_count": 18,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Array creado: [1 2 3 4 5]\n",
+            "Valor mínimo: 1\n",
+            "Valor máximo: 5\n",
+            "Saliendo del contexto. El array era: [1 2 3 4 5]\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Mensaje con PEP8 con un greet\n"
+      ],
+      "metadata": {
+        "id": "FAbYqkWx7ofz"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def greet(name):\n",
+        "    \"\"\"Saluda al usuario.\n",
+        "\n",
+        "    Args:\n",
+        "        name: Nombre del usuario.\n",
+        "\n",
+        "    Returns:\n",
+        "        Un string con el saludo\n",
+        "    \"\"\"\n",
+        "\n",
+        "    return f\"Hola como estas {name}!\"\n",
+        "\n",
+        "\n",
+        "if __name__ == \"__main__\":\n",
+        "    # Bucle para asegurarse de que el usuario siempre ingrese un nombre\n",
+        "    user_name = \"\"\n",
+        "    while not user_name.strip():  # Continúa pidiendo el nombre hasta que no esté vacío\n",
+        "        user_name = input(\"Enter your name: \").strip()  # El .strip() elimina espacios en blanco\n",
+        "\n",
+        "    greeting = greet(user_name)\n",
+        "    print(greeting)\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "NwUqmAND9X6p",
+        "outputId": "ba20d282-030d-4caf-974d-3a12d4110565"
+      },
+      "execution_count": 20,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Enter your name: matias\n",
+            "Hola como estas matias!\n"
+          ]
+        }
+      ]
+    }
+  ]
+}
